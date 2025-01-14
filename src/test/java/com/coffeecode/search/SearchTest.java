@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -123,5 +124,37 @@ class SearchTest {
         // Verify steps count
         assertTrue(binaryBest.getSteps().size() <= Math.ceil(Math.log(largeData.length) / Math.log(2)));
         assertEquals(largeData.length, linearWorst.getSteps().size());
+    }
+
+    @Test
+    void testNullInput() {
+        Exception dataException = assertThrows(IllegalArgumentException.class,
+                () -> linearSearch.search(null, "test"));
+        assertEquals("Data array cannot be null", dataException.getMessage());
+
+        Exception targetException = assertThrows(IllegalArgumentException.class,
+                () -> linearSearch.search(sortedData, null));
+        assertEquals("Search target cannot be null", targetException.getMessage());
+
+        dataException = assertThrows(IllegalArgumentException.class,
+                () -> binarySearch.search(null, "test"));
+        assertEquals("Data array cannot be null", dataException.getMessage());
+
+        targetException = assertThrows(IllegalArgumentException.class,
+                () -> binarySearch.search(sortedData, null));
+        assertEquals("Search target cannot be null", targetException.getMessage());
+    }
+
+    @Test
+    void testCaseSensitivity() {
+        assertFalse(linearSearch.search(sortedData, "KUCING").isFound());
+        assertFalse(binarySearch.search(sortedData, "KUCING").isFound());
+    }
+
+    @Test
+    void testSpecialCharacters() {
+        String[] specialData = { "$test", "@test", "[test]" };
+        assertTrue(linearSearch.search(specialData, "$test").isFound());
+        assertTrue(binarySearch.search(specialData, "$test").isFound());
     }
 }

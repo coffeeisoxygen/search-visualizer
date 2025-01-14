@@ -6,8 +6,10 @@ import java.util.List;
 public class BinarySearch extends AbstractSearch {
     @Override
     public SearchResult search(String[] data, String target) {
+        validateInput(data, target);
+
         List<Integer> steps = new ArrayList<>();
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
 
         int left = 0;
         int right = data.length - 1;
