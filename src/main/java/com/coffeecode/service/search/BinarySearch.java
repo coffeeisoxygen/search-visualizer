@@ -24,9 +24,7 @@ public class BinarySearch extends AbstractSearch {
 
             int comparison = target.compareTo(data[mid]);
             if (comparison == 0) {
-                SearchResult result = new SearchResult(steps, mid, System.nanoTime() - startTime);
-                notifyComplete(result);
-                return result;
+                return new SearchResult(steps, mid, System.nanoTime() - startTime);
             }
 
             if (comparison < 0) {
@@ -36,9 +34,7 @@ public class BinarySearch extends AbstractSearch {
             }
         }
 
-        SearchResult result = new SearchResult(steps, -1, System.nanoTime() - startTime);
-        notifyComplete(result);
-        return result;
+        return new SearchResult(steps, -1, System.nanoTime() - startTime);
     }
 
     @Override

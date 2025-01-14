@@ -18,15 +18,11 @@ public class LinearSearch extends AbstractSearch {
             notifyStep(new LinearSearchState(i));
 
             if (data[i].equals(target)) {
-                SearchResult result = new SearchResult(steps, i, System.nanoTime() - startTime);
-                notifyComplete(result);
-                return result;
+                return new SearchResult(steps, i, System.nanoTime() - startTime);
             }
         }
 
-        SearchResult result = new SearchResult(steps, -1, System.nanoTime() - startTime);
-        notifyComplete(result);
-        return result;
+        return new SearchResult(steps, -1, System.nanoTime() - startTime);
     }
 
     @Override
