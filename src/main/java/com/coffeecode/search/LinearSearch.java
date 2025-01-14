@@ -13,12 +13,18 @@ public class LinearSearch extends AbstractSearch {
 
         for (int i = 0; i < data.length; i++) {
             steps.add(i);
+            notifyStep(new LinearSearchState(i));
+
             if (data[i].equals(target)) {
-                return createResult(steps, i, startTime);
+                SearchResult result = new SearchResult(steps, i, System.nanoTime() - startTime);
+                notifyComplete(result);
+                return result;
             }
         }
 
-        return createResult(steps, -1, startTime);
+        SearchResult result = new SearchResult(steps, -1, System.nanoTime() - startTime);
+        notifyComplete(result);
+        return result;
     }
 
     @Override

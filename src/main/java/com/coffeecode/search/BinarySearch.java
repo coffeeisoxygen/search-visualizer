@@ -18,9 +18,13 @@ public class BinarySearch extends AbstractSearch {
             int mid = left + (right - left) / 2;
             steps.add(mid);
 
+            notifyStep(new BinarySearchState(left, mid, right));
+
             int comparison = target.compareTo(data[mid]);
             if (comparison == 0) {
-                return createResult(steps, mid, startTime);
+                SearchResult result = new SearchResult(steps, mid, System.nanoTime() - startTime);
+                notifyComplete(result);
+                return result;
             }
 
             if (comparison < 0) {
@@ -30,7 +34,9 @@ public class BinarySearch extends AbstractSearch {
             }
         }
 
-        return createResult(steps, -1, startTime);
+        SearchResult result = new SearchResult(steps, -1, System.nanoTime() - startTime);
+        notifyComplete(result);
+        return result;
     }
 
     @Override
