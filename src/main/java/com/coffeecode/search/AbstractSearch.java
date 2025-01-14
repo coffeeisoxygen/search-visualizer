@@ -13,7 +13,6 @@ public abstract class AbstractSearch implements ISearchable {
     }
 
     protected SearchResult createResult(List<Integer> steps, int foundIndex, long startTime) {
-        long duration = System.nanoTime() - startTime;
-        return new SearchResult(steps, foundIndex, duration);
+        return new SearchResult(steps, foundIndex, System.nanoTime() - startTime);
     }
 }
