@@ -1,0 +1,254 @@
+{
+  "metadata": {
+    "language_source": "Indonesian",
+    "language_target": "English",
+    "version": "1.0",
+    "last_updated": " 2025-01-14"
+  },
+  "data": [
+    {
+      "indonesian": "anjing",
+      "english": "dog"
+    },
+    {
+      "indonesian": "kucing",
+      "english": "cat"
+    },
+    {
+      "indonesian": "rumah",
+      "english": "house"
+    },
+    {
+      "indonesian": "mobil",
+      "english": "car"
+    },
+    {
+      "indonesian": "sekolah",
+      "english": "school"
+    },
+    {
+      "indonesian": "buku",
+      "english": "book"
+    },
+    {
+      "indonesian": "meja",
+      "english": "table"
+    },
+    {
+      "indonesian": "kursi",
+      "english": "chair"
+    },
+    {
+      "indonesian": "pintu",
+      "english": "door"
+    },
+    {
+      "indonesian": "jendela",
+      "english": "window"
+    },
+    {
+      "indonesian": "makanan",
+      "english": "food"
+    },
+    {
+      "indonesian": "minuman",
+      "english": "drink"
+    },
+    {
+      "indonesian": "bunga",
+      "english": "flower"
+    },
+    {
+      "indonesian": "pohon",
+      "english": "tree"
+    },
+    {
+      "indonesian": "laut",
+      "english": "sea"
+    },
+    {
+      "indonesian": "gunung",
+      "english": "mountain"
+    },
+    {
+      "indonesian": "sungai",
+      "english": "river"
+    },
+    {
+      "indonesian": "langit",
+      "english": "sky"
+    },
+    {
+      "indonesian": "bintang",
+      "english": "star"
+    },
+    {
+      "indonesian": "bulan",
+      "english": "moon"
+    },
+    {
+      "indonesian": "matahari",
+      "english": "sun"
+    },
+    {
+      "indonesian": "cuaca",
+      "english": "weather"
+    },
+    {
+      "indonesian": "angin",
+      "english": "wind"
+    },
+    {
+      "indonesian": "salju",
+      "english": "snow"
+    },
+    {
+      "indonesian": "hujan",
+      "english": "rain"
+    },
+    {
+      "indonesian": "api",
+      "english": "fire"
+    },
+    {
+      "indonesian": "tanah",
+      "english": "earth"
+    },
+    {
+      "indonesian": "udara",
+      "english": "air"
+    },
+    {
+      "indonesian": "kayu",
+      "english": "wood"
+    },
+    {
+      "indonesian": "batu",
+      "english": "stone"
+    },
+    {
+      "indonesian": "logam",
+      "english": "metal"
+    },
+    {
+      "indonesian": "kaca",
+      "english": "glass"
+    },
+    {
+      "indonesian": "kain",
+      "english": "cloth"
+    },
+    {
+      "indonesian": "sepatu",
+      "english": "shoes"
+    },
+    {
+      "indonesian": "topi",
+      "english": "hat"
+    },
+    {
+      "indonesian": "baju",
+      "english": "shirt"
+    },
+    {
+      "indonesian": "celana",
+      "english": "pants"
+    },
+    {
+      "indonesian": "tas",
+      "english": "bag"
+    },
+    {
+      "indonesian": "jam",
+      "english": "watch"
+    },
+    {
+      "indonesian": "cincin",
+      "english": "ring"
+    },
+    {
+      "indonesian": "kalung",
+      "english": "necklace"
+    },
+    {
+      "indonesian": "perhiasan",
+      "english": "jewelry"
+    },
+    {
+      "indonesian": "kunci",
+      "english": "key"
+    },
+    {
+      "indonesian": "peta",
+      "english": "map"
+    },
+    {
+      "indonesian": "komputer",
+      "english": "computer"
+    },
+    {
+      "indonesian": "telepon",
+      "english": "phone"
+    },
+    {
+      "indonesian": "televisi",
+      "english": "television"
+    },
+    {
+      "indonesian": "radio",
+      "english": "radio"
+    },
+    {
+      "indonesian": "kamera",
+      "english": "camera"
+    },
+    {
+      "indonesian": "musik",
+      "english": "music"
+    },
+    {
+      "indonesian": "film",
+      "english": "movie"
+    },
+    {
+      "indonesian": "buku cerita",
+      "english": "storybook"
+    },
+    {
+      "indonesian": "majalah",
+      "english": "magazine"
+    },
+    {
+      "indonesian": "koran",
+      "english": "newspaper"
+    },
+    {
+      "indonesian": "internet",
+      "english": "internet"
+    },
+    {
+      "indonesian": "sosial media",
+      "english": "social media"
+    },
+    {
+      "indonesian": "perangkat",
+      "english": "device"
+    },
+    {
+      "indonesian": "aplikasi",
+      "english": "application"
+    },
+    {
+      "indonesian": "program",
+      "english": "program"
+    },
+    {
+      "indonesian": "sistem",
+      "english": "system"
+    },
+    {
+      "indonesian": "data",
+      "english": "data"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+    "metadata": {
+        "language_source": "English",
+        "language_target": "Indonesian",
+        "version": "1.0",
+        "last_updated": "2025-01-14"
+    },
+    "data": [
+        {
+            "english": "dog",
+            "indonesian": "anjing"
+        },
+        {
+            "english": "cat",
+            "indonesian": "kucing"
+        },
+        {
+            "english": "house",
+            "indonesian": "rumah"
+        },
+        {
+            "english": "car",
+            "indonesian": "mobil"
+        },
+        {
+            "english": "school",
+            "indonesian": "sekolah"
+        },
+        {
+            "english": "book",
+            "indonesian": "buku"
+        },
+        {
+            "english": "table",
+            "indonesian": "meja"
+        },
+        {
+            "english": "chair",
+            "indonesian": "kursi"
+        },
+        {
+            "english": "door",
+            "indonesian": "pintu"
+        },
+        {
+            "english": "window",
+            "indonesian": "jendela"
+        },
+        {
+            "english": "food",
+            "indonesian": "makanan"
+        },
+        {
+            "english": "drink",
+            "indonesian": "minuman"
+        },
+        {
+            "english": "flower",
+            "indonesian": "bunga"
+        },
+        {
+            "english": "tree",
+            "indonesian": "pohon"
+        },
+        {
+            "english": "sea",
+            "indonesian": "laut"
+        },
+        {
+            "english": "mountain",
+            "indonesian": "gunung"
+        },
+        {
+            "english": "river",
+            "indonesian": "sungai"
+        },
+        {
+            "english": "sky",
+            "indonesian": "langit"
+        },
+        {
+            "english": "star",
+            "indonesian": "bintang"
+        },
+        {
+            "english": "moon",
+            "indonesian": "bulan"
+        },
+        {
+            "english": "sun",
+            "indonesian": "matahari"
+        },
+        {
+            "english": "weather",
+            "indonesian": "cuaca"
+        },
+        {
+            "english": "wind",
+            "indonesian": "angin"
+        },
+        {
+            "english": "snow",
+            "indonesian": "salju"
+        },
+        {
+            "english": "rain",
+            "indonesian": "hujan"
+        },
+        {
+            "english": "fire",
+            "indonesian": "api"
+        },
+        {
+            "english": "earth",
+            "indonesian": "tanah"
+        },
+        {
+            "english": "air",
+            "indonesian": "udara"
+        },
+        {
+            "english": "wood",
+            "indonesian": "kayu"
+        },
+        {
+            "english": "stone",
+            "indonesian": "batu"
+        },
+        {
+            "english": "metal",
+            "indonesian": "logam"
+        },
+        {
+            "english": "glass",
+            "indonesian": "kaca"
+        },
+        {
+            "english": "cloth",
+            "indonesian": "kain"
+        },
+        {
+            "english": "shoes",
+            "indonesian": "sepatu"
+        },
+        {
+            "english": "hat",
+            "indonesian": "topi"
+        },
+        {
+            "english": "shirt",
+            "indonesian": "baju"
+        },
+        {
+            "english": "pants",
+            "indonesian": "celana"
+        },
+        {
+            "english": "bag",
+            "indonesian": "tas"
+        },
+        {
+            "english": "watch",
+            "indonesian": "jam"
+        },
+        {
+            "english": "ring",
+            "indonesian": "cincin"
+        },
+        {
+            "english": "necklace",
+            "indonesian": "kalung"
+        },
+        {
+            "english": "jewelry",
+            "indonesian": "perhiasan"
+        },
+        {
+            "english": "key",
+            "indonesian": "kunci"
+        },
+        {
+            "english": "map",
+            "indonesian": "peta"
+        },
+        {
+            "english": "computer",
+            "indonesian": "komputer"
+        },
+        {
+            "english": "phone",
+            "indonesian": "telepon"
+        },
+        {
+            "english": "television",
+            "indonesian": "televisi"
+        },
+        {
+            "english": "radio",
+            "indonesian": "radio"
+        },
+        {
+            "english": "camera",
+            "indonesian": "kamera"
+        },
+        {
+            "english": "music",
+            "indonesian": "musik"
+        },
+        {
+            "english": "movie",
+            "indonesian": "film"
+        },
+        {
+            "english": "storybook",
+            "indonesian": "buku cerita"
+        },
+        {
+            "english": "magazine",
+            "indonesian": "majalah"
+        },
+        {
+            "english": "newspaper",
+            "indonesian": "koran"
+        },
+        {
+            "english": "internet",
+            "indonesian": "internet"
+        },
+        {
+            "english": "social media",
+            "indonesian": "sosial media"
+        },
+        {
+            "english": "device",
+            "indonesian": "perangkat"
+        },
+        {
+            "english": "application",
+            "indonesian": "aplikasi"
+        },
+        {
+            "english": "program",
+            "indonesian": "program"
+        },
+        {
+            "english": "system",
+            "indonesian": "sistem"
+        },
+        {
+            "english": "data",
+            "indonesian": "data"
+        }
+    ]
+}
