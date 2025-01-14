@@ -1,23 +1,21 @@
 package com.coffeecode.service.search;
 
-import java.util.List;
-
 import com.coffeecode.model.SearchResult;
 
 public abstract class AbstractSearch implements ISearchable {
     protected SearchObserver observer;
-    
+
     @Override
     public void setObserver(SearchObserver observer) {
         this.observer = observer;
     }
-    
+
     protected void notifyStep(SearchState state) {
         if (observer != null) {
             observer.onSearchStep(state);
         }
     }
-    
+
     protected void notifyComplete(SearchResult result) {
         if (observer != null) {
             observer.onSearchComplete(result);
@@ -25,15 +23,9 @@ public abstract class AbstractSearch implements ISearchable {
     }
 
     protected void validateInput(String[] data, String target) {
-        if (data == null) {
-            throw new IllegalArgumentException("Data array cannot be null");
+        if (data == null || target == null) {
+            throw new IllegalArgumentException(
+                    data == null ? "Data array cannot be null" : "Search target cannot be null");
         }
-        if (target == null) {
-            throw new IllegalArgumentException("Search target cannot be null");
-        }
-    }
-
-    protected SearchResult createResult(List<Integer> steps, int foundIndex, long startTime) {
-        return new SearchResult(steps, foundIndex, System.nanoTime() - startTime);
     }
 }
