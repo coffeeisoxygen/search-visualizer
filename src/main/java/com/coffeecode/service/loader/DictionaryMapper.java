@@ -1,4 +1,4 @@
-package com.coffeecode.load;
+package com.coffeecode.service.loader;
 
 import java.util.HashMap;
 import java.util.Map;

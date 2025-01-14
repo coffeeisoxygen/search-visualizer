@@ -6,6 +6,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.coffeecode.model.SearchResult;
+import com.coffeecode.service.search.BinarySearch;
+import com.coffeecode.service.search.LinearSearch;
+import com.coffeecode.service.search.SearchObserver;
+import com.coffeecode.service.search.SearchState;
+
 class SearchAlgorithmTest {
     private String[] sortedData;
     private LinearSearch linearSearch;

@@ -1,9 +1,7 @@
-package com.coffeecode.load;
+package com.coffeecode.service.loader;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,16 +11,14 @@ import com.coffeecode.model.DictionaryData;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JsonLoad implements ILoadAble {
-    private static final Logger logger = LoggerFactory.getLogger(JsonLoad.class);
+public class JsonDictionaryLoader implements IDictionaryLoader {
+    private static final Logger logger = LoggerFactory.getLogger(JsonDictionaryLoader.class);
     private final ObjectMapper mapper;
-    private final Map<String, DictionaryData> cache;
     private final FileValidator fileValidator;
     private final DictionaryMapper dictionaryMapper;
 
-    public JsonLoad() {
+    public JsonDictionaryLoader() {
         this.mapper = new ObjectMapper();
-        this.cache = new ConcurrentHashMap<>();
         this.fileValidator = new FileValidator();
         this.dictionaryMapper = new DictionaryMapper();
     }
@@ -30,18 +26,10 @@ public class JsonLoad implements ILoadAble {
     @Override
     public DictionaryData load(String filePath) {
         try {
-            // Check cache first
-            if (cache.containsKey(filePath)) {
-                logger.debug("Retrieved dictionary from cache: {}", filePath);
-                return cache.get(filePath);
-            }
-
             fileValidator.validate(filePath);
             JsonNode rootNode = mapper.readTree(new File(filePath));
             DictionaryData dictionary = dictionaryMapper.mapToDictionary(rootNode);
 
-            // Cache the result
-            cache.put(filePath, dictionary);
             logger.info("Successfully loaded dictionary from: {}", filePath);
 
             return dictionary;

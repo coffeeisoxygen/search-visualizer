@@ -1,4 +1,4 @@
-package com.coffeecode.gui;
+package com.coffeecode.view.gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

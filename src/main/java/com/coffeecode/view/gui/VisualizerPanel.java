@@ -1,4 +1,4 @@
-package com.coffeecode.gui;
+package com.coffeecode.view.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import com.coffeecode.search.SearchState;
+import com.coffeecode.service.search.SearchState;
 
 public class VisualizerPanel extends JPanel {
     private String[] data;

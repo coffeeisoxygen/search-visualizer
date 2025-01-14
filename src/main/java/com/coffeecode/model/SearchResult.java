@@ -1,4 +1,4 @@
-package com.coffeecode.search;
+package com.coffeecode.model;
 
 import java.util.ArrayList;
 import java.util.List;

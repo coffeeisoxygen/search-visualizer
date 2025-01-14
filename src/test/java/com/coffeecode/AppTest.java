@@ -9,13 +9,13 @@ import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
 
 import com.coffeecode.exception.DictionaryLoadException;
-import com.coffeecode.load.ILoadAble;
 import com.coffeecode.model.DictionaryData;
+import com.coffeecode.service.loader.IDictionaryLoader;
 
 class AppTest {
     @Mock
-    private ILoadAble mockLoader;
-    
+    private IDictionaryLoader mockLoader;
+
     @Mock
     private DictionaryData mockDictionary;
 
@@ -27,21 +27,21 @@ class AppTest {
     @Test
     void testSuccessfulStartup() {
         when(mockLoader.loadBothDictionaries(anyString(), anyString()))
-            .thenReturn(mockDictionary);
+                .thenReturn(mockDictionary);
         when(mockDictionary.size()).thenReturn(5);
 
         assertDoesNotThrow(() -> {
-            App.main(new String[]{});
+            App.main(new String[] {});
         });
     }
 
     @Test
     void testDictionaryLoadError() {
         when(mockLoader.loadBothDictionaries(anyString(), anyString()))
-            .thenThrow(new DictionaryLoadException("Test error"));
+                .thenThrow(new DictionaryLoadException("Test error"));
 
         assertDoesNotThrow(() -> {
-            App.main(new String[]{});
+            App.main(new String[] {});
         });
     }
 }

@@ -1,4 +1,4 @@
-package com.coffeecode.search;
+package com.coffeecode.service.search;
 
 public class BinarySearchState implements SearchState {
     private final int low;

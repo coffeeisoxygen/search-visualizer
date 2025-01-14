@@ -1,4 +1,4 @@
-package com.coffeecode.gui;
+package com.coffeecode.view.gui;
 
 import java.awt.BorderLayout;
 import java.beans.PropertyChangeEvent;
@@ -7,10 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.Timer;
 
 import com.coffeecode.model.DictionaryData;
-import com.coffeecode.search.BinarySearch;
-import com.coffeecode.search.ISearchable;
-import com.coffeecode.search.LinearSearch;
-import com.coffeecode.search.SearchResult;
+import com.coffeecode.model.SearchResult;
+import com.coffeecode.service.search.BinarySearch;
+import com.coffeecode.service.search.ISearchable;
+import com.coffeecode.service.search.LinearSearch;
 
 public class MainFrame extends JFrame {
     private SearchPanel searchPanel;

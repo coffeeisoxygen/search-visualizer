@@ -6,14 +6,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.coffeecode.model.DictionaryData;
+import com.coffeecode.service.loader.JsonDictionaryLoader;
 
 class JsonLoadTest {
-    private JsonLoad jsonLoad;
+    private JsonDictionaryLoader jsonLoad;
     private static final String TEST_DICTIONARY_PATH = "src/test/resources/data/test-dictionary.json";
 
     @BeforeEach
     void setUp() {
-        jsonLoad = new JsonLoad();
+        jsonLoad = new JsonDictionaryLoader();
     }
 
     @Test

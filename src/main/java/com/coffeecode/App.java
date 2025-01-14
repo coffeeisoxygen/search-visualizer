@@ -6,17 +6,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.coffeecode.exception.DictionaryLoadException;
-import com.coffeecode.gui.MainFrame;
-import com.coffeecode.load.ILoadAble;
-import com.coffeecode.load.JsonLoad;
 import com.coffeecode.model.DictionaryData;
+import com.coffeecode.service.loader.IDictionaryLoader;
+import com.coffeecode.service.loader.JsonDictionaryLoader;
+import com.coffeecode.view.gui.MainFrame;
 
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
         logger.info("Starting Dictionary Application");
-        ILoadAble loader = new JsonLoad();
+        IDictionaryLoader loader = new JsonDictionaryLoader();
 
         try {
             logger.debug("Loading dictionary files...");

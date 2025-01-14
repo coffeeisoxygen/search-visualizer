@@ -1,7 +1,9 @@
-package com.coffeecode.search;
+package com.coffeecode.service.search;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.coffeecode.model.SearchResult;
 
 public class BinarySearch extends AbstractSearch {
     @Override

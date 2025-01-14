@@ -30,10 +30,10 @@ public class DictionaryData {
     }
 
     public String[] getIndoWords() {
-        return indToEng.keySet().toArray(new String[0]);
+        return indToEng.keySet().toArray(String[]::new);
     }
 
     public String[] getEngWords() {
-        return engToInd.keySet().toArray(new String[0]);
+        return engToInd.keySet().toArray(String[]::new);
     }
 }

@@ -10,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.coffeecode.model.SearchResult;
+import com.coffeecode.service.search.BinarySearch;
+import com.coffeecode.service.search.LinearSearch;
+
 class SearchTest {
     private String[] sortedData;
     private String[] singleData;
