@@ -2,6 +2,7 @@ package com.coffeecode.view.gui;
 
 import java.awt.FlowLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -19,27 +20,23 @@ public class ControlPanel extends JPanel {
 
     public ControlPanel() {
         setLayout(new FlowLayout(FlowLayout.CENTER, 10, 5));
+        setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
         initComponents();
+        setupListeners();
     }
 
     private void initComponents() {
-        // Algorithm selector
         algorithmSelector = new JComboBox<>(new String[] { "Linear Search", "Binary Search" });
-
-        // Control buttons
         playPauseButton = new JButton("Play");
         stepButton = new JButton("Step");
         resetButton = new JButton("Reset");
 
-        // Speed control
         speedSlider = new JSlider(JSlider.HORIZONTAL, 1, 10, 5);
-        speedSlider.setMajorTickSpacing(1);
+        speedSlider.setMajorTickSpacing(2);
         speedSlider.setPaintTicks(true);
 
-        // Status label
         statusLabel = new JLabel("Ready");
 
-        // Add components
         add(new JLabel("Algorithm:"));
         add(algorithmSelector);
         add(playPauseButton);
@@ -48,43 +45,32 @@ public class ControlPanel extends JPanel {
         add(new JLabel("Speed:"));
         add(speedSlider);
         add(statusLabel);
-
-        setupListeners();
     }
 
     private void setupListeners() {
         playPauseButton.addActionListener(e -> togglePlayPause());
-        stepButton.addActionListener(e -> step());
-        resetButton.addActionListener(e -> reset());
+        stepButton.addActionListener(e -> firePropertyChange("step", false, true));
+        resetButton.addActionListener(e -> firePropertyChange("reset", false, true));
+        algorithmSelector
+                .addActionListener(e -> firePropertyChange("algorithm", null, algorithmSelector.getSelectedItem()));
     }
 
     private void togglePlayPause() {
         isPlaying = !isPlaying;
         playPauseButton.setText(isPlaying ? "Pause" : "Play");
         stepButton.setEnabled(!isPlaying);
-        firePropertyChange("playState", !isPlaying, isPlaying);
+        firePropertyChange("playing", !isPlaying, isPlaying);
     }
 
-    private void step() {
-        firePropertyChange("step", false, true);
-    }
-
-    private void reset() {
-        isPlaying = false;
-        playPauseButton.setText("Play");
-        stepButton.setEnabled(true);
-        firePropertyChange("reset", false, true);
-    }
-
-    public String getSelectedAlgorithm() {
-        return (String) algorithmSelector.getSelectedItem();
+    public void setStatus(String status) {
+        statusLabel.setText(status);
     }
 
     public int getSpeed() {
         return speedSlider.getValue();
     }
 
-    public void setStatus(String status) {
-        statusLabel.setText(status);
+    public String getSelectedAlgorithm() {
+        return (String) algorithmSelector.getSelectedItem();
     }
 }

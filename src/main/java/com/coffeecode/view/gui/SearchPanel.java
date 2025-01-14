@@ -25,53 +25,45 @@ public class SearchPanel extends JPanel {
     private void initComponents() {
         GridBagConstraints gbc = new GridBagConstraints();
 
-        // Search input
+        // Search input field
         searchField = new JTextField(20);
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1.0;
-        add(new JLabel("Search:"), gbc);
-
-        gbc.gridx = 1;
         add(searchField, gbc);
 
         // Language selector
         languageSelector = new JComboBox<>(new String[] { "ID -> EN", "EN -> ID" });
-        gbc.gridx = 2;
+        gbc.gridx = 1;
         gbc.weightx = 0.0;
         add(languageSelector, gbc);
 
         // Search button
         searchButton = new JButton("Search");
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.gridwidth = 2;
+        gbc.gridx = 2;
         add(searchButton, gbc);
 
         // Result label
         resultLabel = new JLabel("Enter word to search");
-        gbc.gridx = 2;
-        gbc.gridwidth = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 3;
         add(resultLabel, gbc);
 
         setupListeners();
     }
 
     private void setupListeners() {
-        searchButton.addActionListener(e -> performSearch());
+        searchButton.addActionListener(e -> fireSearchEvent());
     }
 
-    private void performSearch() {
-        String searchText = searchField.getText().trim();
-        if (searchText.isEmpty()) {
-            resultLabel.setText("Please enter a word");
-            return;
-        }
-
+    private void fireSearchEvent() {
+        String searchTerm = searchField.getText().trim();
         boolean isIndToEng = languageSelector.getSelectedIndex() == 0;
+
         firePropertyChange("search", null,
-                new SearchRequest(searchText, isIndToEng));
+                new SearchRequest(searchTerm, isIndToEng));
     }
 
     public void setResult(String result) {
