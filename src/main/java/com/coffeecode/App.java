@@ -8,10 +8,6 @@ import com.coffeecode.load.ILoadAble;
 import com.coffeecode.load.JsonLoad;
 import com.coffeecode.model.DictionaryData;
 
-/**
- * Hello world!
- *
- */
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
@@ -25,13 +21,16 @@ public class App {
                     "src/main/resources/data/indonesian.json",
                     "src/main/resources/data/english.json");
 
-            logger.info("Testing Indonesian to English translation");
-            String catTranslation = dictionary.getIndToEng().get("kucing");
-            logger.debug("Translation 'kucing' -> '{}'", catTranslation);
+            // Display dictionary size
+            logger.info("Dictionary loaded with {} entries", dictionary.size());
 
-            logger.info("Testing English to Indonesian translation");
-            String dogTranslation = dictionary.getEngToInd().get("dog");
-            logger.debug("Translation 'dog' -> '{}'", dogTranslation);
+            // Display Indonesian to English mappings
+            logger.info("Indonesian to English mappings:");
+            dictionary.getIndToEng().forEach((indo, eng) -> logger.info("{} -> {}", indo, eng));
+
+            // Display English to Indonesian mappings
+            logger.info("English to Indonesian mappings:");
+            dictionary.getEngToInd().forEach((eng, indo) -> logger.info("{} -> {}", eng, indo));
 
         } catch (DictionaryLoadException e) {
             logger.error("Failed to load dictionaries", e);
