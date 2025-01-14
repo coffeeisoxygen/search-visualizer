@@ -6,24 +6,20 @@ import java.beans.PropertyChangeEvent;
 import javax.swing.JFrame;
 import javax.swing.Timer;
 
-import com.coffeecode.model.DictionaryData;
+import com.coffeecode.controller.DictionaryController;
 import com.coffeecode.model.SearchResult;
-import com.coffeecode.service.search.BinarySearch;
-import com.coffeecode.service.search.ISearchable;
-import com.coffeecode.service.search.LinearSearch;
 
 public class MainFrame extends JFrame {
+    private final DictionaryController dictionaryController;
     private SearchPanel searchPanel;
     private VisualizerPanel visualizerPanel;
     private ControlPanel controlPanel;
-    private DictionaryData dictionary;
-    private ISearchable currentSearch;
     private Timer visualizationTimer;
     private SearchResult searchResult;
     private int currentStepIndex;
 
-    public MainFrame(DictionaryData dictionary) {
-        this.dictionary = dictionary;
+    public MainFrame(DictionaryController dictionaryController) {
+        this.dictionaryController = dictionaryController;
         setTitle("Search Algorithm Visualizer");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout(10, 10));
@@ -37,7 +33,6 @@ public class MainFrame extends JFrame {
         searchPanel = new SearchPanel();
         visualizerPanel = new VisualizerPanel();
         controlPanel = new ControlPanel();
-        currentSearch = new LinearSearch();
 
         add(searchPanel, BorderLayout.NORTH);
         add(visualizerPanel, BorderLayout.CENTER);
@@ -55,15 +50,15 @@ public class MainFrame extends JFrame {
 
     private void handleSearch(PropertyChangeEvent evt) {
         SearchRequest request = (SearchRequest) evt.getNewValue();
-        String[] data = request.isIndToEng ? dictionary.getIndoWords() : dictionary.getEngWords();
-
-        currentSearch = "Linear Search".equals(controlPanel.getSelectedAlgorithm()) ? new LinearSearch()
-                : new BinarySearch();
-
-        searchResult = currentSearch.search(data, request.searchTerm);
+        searchResult = dictionaryController.search(
+            request.searchTerm, 
+            request.isIndToEng
+        );
+        
         currentStepIndex = 0;
-
-        visualizerPanel.setData(data);
+        visualizerPanel.setData(
+            dictionaryController.getWords(request.isIndToEng)
+        );
         updateVisualization();
     }
 

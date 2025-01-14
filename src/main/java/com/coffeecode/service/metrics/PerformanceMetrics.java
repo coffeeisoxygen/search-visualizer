@@ -20,6 +20,8 @@ public class PerformanceMetrics {
         long count = searchCount.get();
         long totalTime = totalSearchTime.get();
         double avgTime = count > 0 ? (double) totalTime / count : 0;
-        logger.info("Search metrics - Count: {}, Avg Time: {:.2f}ms", count, avgTime);
+        if (logger.isInfoEnabled()) {
+            logger.info("Search metrics - Count: {}, Avg Time: {}ms", count, String.format("%.2f", avgTime));
+        }
     }
 }

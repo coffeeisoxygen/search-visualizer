@@ -5,8 +5,9 @@ import javax.swing.SwingUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.coffeecode.exception.DictionaryLoadException;
-import com.coffeecode.model.DictionaryData;
+import com.coffeecode.controller.DictionaryController;
+import com.coffeecode.service.dictionary.DictionaryService;
+import com.coffeecode.service.dictionary.IDictionaryService;
 import com.coffeecode.service.loader.IDictionaryLoader;
 import com.coffeecode.service.loader.JsonDictionaryLoader;
 import com.coffeecode.view.gui.MainFrame;
@@ -17,27 +18,13 @@ public class App {
     public static void main(String[] args) {
         logger.info("Starting Dictionary Application");
         IDictionaryLoader loader = new JsonDictionaryLoader();
+        IDictionaryService dictionaryService = new DictionaryService(loader);
+        DictionaryController dictionaryController = new DictionaryController(dictionaryService);
 
-        try {
-            logger.debug("Loading dictionary files...");
-            DictionaryData dictionary = loader.loadBothDictionaries(
-                    "src/main/resources/data/indonesian.json",
-                    "src/main/resources/data/english.json");
-
-            logger.info("Dictionary loaded with {} entries", dictionary.size());
-
-            SwingUtilities.invokeLater(() -> {
-                try {
-                    MainFrame frame = new MainFrame(dictionary);
-                    frame.setVisible(true);
-                    logger.info("GUI initialized successfully");
-                } catch (Exception e) {
-                    logger.error("Failed to initialize GUI", e);
-                }
-            });
-
-        } catch (DictionaryLoadException e) {
-            logger.error("Failed to load dictionaries", e);
-        }
+        SwingUtilities.invokeLater(() -> {
+            MainFrame frame = new MainFrame(dictionaryController);
+            frame.setVisible(true);
+            logger.info("GUI initialized successfully");
+        });
     }
 }
