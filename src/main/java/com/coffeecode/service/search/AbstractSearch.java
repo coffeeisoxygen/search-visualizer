@@ -15,8 +15,11 @@ public abstract class AbstractSearch implements ISearchable {
     }
 
     protected void validateInput(String[] data, String target) {
-        if (data == null || target == null) {
-            throw new IllegalArgumentException("Invalid search parameters");
+        if (data == null) {
+            throw new IllegalArgumentException("Data array cannot be null");
+        }
+        if (target == null) {
+            throw new IllegalArgumentException("Search target cannot be null");
         }
     }
 }
