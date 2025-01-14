@@ -1,5 +1,7 @@
 package com.coffeecode.service.dictionary;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,9 +12,11 @@ public class DictionaryService implements IDictionaryService {
     private static final Logger logger = LoggerFactory.getLogger(DictionaryService.class);
     private final IDictionaryLoader loader;
     private DictionaryData dictionary;
+    private final ConcurrentHashMap<String, String> translationCache;
 
     public DictionaryService(IDictionaryLoader loader) {
         this.loader = loader;
+        this.translationCache = new ConcurrentHashMap<>();
     }
 
     @Override
@@ -35,10 +39,16 @@ public class DictionaryService implements IDictionaryService {
     @Override
     public String translate(String word, boolean isIndToEng) {
         validateDictionaryLoaded();
-        if (isIndToEng) {
-            return dictionary.getIndToEng().get(word);
-        }
-        return dictionary.getEngToInd().get(word);
+        String cacheKey = getCacheKey(word, isIndToEng);
+        return translationCache.computeIfAbsent(cacheKey, k -> {
+            String translation = isIndToEng ? dictionary.getIndToEng().get(word) : dictionary.getEngToInd().get(word);
+            logger.debug("Cache miss for: {}", word);
+            return translation;
+        });
+    }
+
+    private String getCacheKey(String word, boolean isIndToEng) {
+        return isIndToEng ? "indo:" + word : "eng:" + word;
     }
 
     private void validateDictionaryLoaded() {
